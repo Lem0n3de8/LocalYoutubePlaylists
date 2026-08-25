@@ -16,6 +16,13 @@
         }
     },
 
+    "web_accessible_resources":[
+        {
+            "resources": ["images/*.png"],
+            "matches": ["https://www.youtube.com/*"]
+        }
+    ],
+    
     "content_scripts":[
         {
             "matches":["https://www.youtube.com/*"],
