@@ -1,4 +1,5 @@
-#playlist_icon {
-    background-color: white;
+#playlist_button{
+    background-color: transparent;
+    border: none;
     margin-left: auto;
 }
