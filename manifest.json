@@ -1,0 +1,7 @@
+{
+    "manifest_version": 3,
+    "name": "Local YouTube Playlists",
+    "version": "0.0.0",
+
+    "description": "An extension that allows you to create playlists without being logged in"
+}
