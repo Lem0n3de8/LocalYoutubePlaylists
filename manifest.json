@@ -7,7 +7,7 @@
 
     "browser_specific_settings":{
         "gecko":{
-            "id":"LocalYouTubePlaylists@lem0n3de8.org",
+            "id":"local-youtube-playlists@lem0n3de8.org",
             "data_collection_persmissions":{
                 "required":["none"]
             }
