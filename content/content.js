@@ -16,7 +16,7 @@ function addHeading(){
     playlist_icon.id = custom_id;
     playlist_icon.width = "30";
     playlist_icon.height = "30";
-    playlist_icon.src = browser.runtime.getURL("images/playlist(1).png");
+    playlist_icon.src = browser.runtime.getURL("images/playlist-icon.png");
 
     h1.appendChild(playlist_icon);
 
