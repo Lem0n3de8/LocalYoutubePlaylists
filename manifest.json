@@ -8,8 +8,10 @@
     "browser_specific_settings":{
         "gecko":{
             "id":"local-youtube-playlists@lem0n3de8.org",
-            "data_collection_persmissions":{
-                "required":["none"]
+            "data_collection_permissions":{
+                "required":[
+                    "none"
+                ]
             }
         }
     },
