@@ -20,12 +20,11 @@ function addPlaylistButton(){
 
     const playlist_icon = document.createElement("img");
     playlist_icon.id = playlist_icon_id;
-    playlist_icon.width = "30";
-    playlist_icon.height = "30";
+    playlist_icon.width = 30;
+    playlist_icon.height = 30;
     playlist_icon.src = browser.runtime.getURL("images/playlist-icon.png");
 
     h1.appendChild(button).appendChild(playlist_icon);
-
 }
 
 const observer = new MutationObserver(() => {
