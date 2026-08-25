@@ -1,6 +1,6 @@
 function addHeading(){
-    const custom_id = "custom_id";
-    
+    const custom_id = "playlist_icon";
+
     // Check if heading is already added
     if (document.getElementById(custom_id)){
         return;
@@ -12,11 +12,11 @@ function addHeading(){
     const h1 = div.querySelector("h1");
     if (!h1) return;
 
-    const h2 = document.createElement("h2");
-    h2.id = custom_id;
-    h2.textContent = "My new subtitle";
+    const playlist_icon = document.createElement("img");
+    playlist_icon.id = custom_id;
+    playlist_icon.src = browser.runtime.getURL("images/playlist-icon.png");
 
-    h1.appendChild(h2);
+    h1.appendChild(playlist_icon);
 
 }
 
