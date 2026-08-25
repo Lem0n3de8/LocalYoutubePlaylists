@@ -9,8 +9,11 @@ function addPlaylistButton(){
 
     // Selectors where button is inserted
     const div = document.getElementById("title");
+    if (!div) return;
+
     const h1 = div.querySelector("h1");
-    if (!div || !h1) return;
+    if (!h1) return;
+
 
     const button = document.createElement("button");
     button.id = button_id;
