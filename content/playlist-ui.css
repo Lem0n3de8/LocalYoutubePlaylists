@@ -5,8 +5,10 @@
 
     background-color: aquamarine;
     width: 300px;
+    max-height: 500px;
 
-    border: 10px solid red;
+    border: 1px solid #000000;
+    border-radius: 3px;
 
     z-index: 2147483647;
 }
