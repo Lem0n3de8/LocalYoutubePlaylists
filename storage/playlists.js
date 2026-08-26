@@ -14,14 +14,17 @@ async function createPlaylist(name){
         const data = await browser.storage.local.get("playlists");
         const playlists = data.playlists || [];
 
-
         playlists.push({
             id: crypto.randomUUID(),
             name:name,
             videos:[]
-        })
-        await browser.storage.local.set({playlists})
+        });
+
+        await browser.storage.local.set({playlists});
+
+        return true;
     }catch(error){
         console.error("Failed to create new playlist: ", error);
+        return false;
     }
 }

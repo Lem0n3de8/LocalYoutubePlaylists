@@ -39,9 +39,9 @@ async function displayPlaylists(){
     }
 }
 
-document.addEventListener("click", (event) => {
+document.addEventListener("click", async (event) => {
     if (event.target.closest("#create-playlist")) {
-        console.log("Create playlist button clicked!");
-        createPlaylist("Playlist")
+        const success = await createPlaylist("Playlist");
+        if (success) await displayPlaylists();
     }
 });
