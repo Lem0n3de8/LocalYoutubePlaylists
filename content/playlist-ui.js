@@ -7,7 +7,7 @@ async function showPlaylistUI() {
         return;
     }
 
-    const url = browser.runtime.getURL("content/youtube-ui.html");
+    const url = browser.runtime.getURL("content/playlist-ui.html");
 
     const response = await fetch(url);
     const html = await response.text();
