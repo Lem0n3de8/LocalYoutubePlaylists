@@ -20,6 +20,7 @@
         {
             "resources": [
                 "images/*.png",
+                "images/*.svg",
                 "content/playlist-ui.css",
                 "content/playlist-ui.html"
             ],
