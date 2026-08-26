@@ -18,16 +18,26 @@
 
     "web_accessible_resources":[
         {
-            "resources": ["images/*.png"],
-            "matches": ["https://www.youtube.com/*"]
+            "resources": [
+                "images/*.png",
+                "content/youtube-ui.css",
+                "content/youtube-ui.html"
+            ],
+            "matches": ["*://www.youtube.com/*"]
         }
     ],
     
     "content_scripts":[
         {
-            "matches":["https://www.youtube.com/*"],
-            "js":["content/content.js"],
-            "css": ["content/content.css"],
+            "matches":["*://www.youtube.com/*"],
+            "js":[
+                "content/youtube-ui.js",
+                "content/content.js"
+            ],
+            "css": [
+                "content/youtube-ui.css",
+                "content/content.css"
+            ],
             "run_at": "document_end"
         }
     ]
