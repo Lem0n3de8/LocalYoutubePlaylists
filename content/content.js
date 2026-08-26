@@ -27,8 +27,13 @@ function addPlaylistButton(){
     h1.appendChild(button).appendChild(playlist_icon);
 }
 
+document.addEventListener("click", (event) => {
+    if (event.target.closest("#playlist_button")) {
+        console.log("Playlist button clicked!");
+    }
+});
+
 const observer = new MutationObserver(() => {
-    console.log("DOM Changed");
     addPlaylistButton();
 })
 
