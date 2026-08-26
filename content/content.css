@@ -1,5 +1,15 @@
 #playlist_button{
-    background-color: transparent;
-    border: none;
+    background-color: #272727;
+
+    padding: 2px 4px 2px 4px;
+
     margin-left: auto;
+
+    height: 40px;
+    width: 40px;
+}
+
+#playlist_button:hover{
+    background-color: #404040;
+    cursor: pointer;
 }
