@@ -14,18 +14,18 @@ async function showPlaylistUI() {
 
     document.body.insertAdjacentHTML("beforeend", html);
 
-    console.log("Calling playlists");
     displayPlaylists();
 }
 
 async function displayPlaylists(){
     const playlists = await getPlaylists();
-    console.log("Playlists are: ", playlists);
+    const container = document.getElementById("playlist-container");
 
-    const button = document.getElementById("create-playlist")
+    // Remove existing playlist elements
+    container.innerHTML = "";
 
+    // Render playlists
     for (const playlist of playlists){
-        console.log("NEW PLAYLIST:", playlist);
         const div = document.createElement("div");
         const h3 = document.createElement("h3");
 
@@ -35,8 +35,7 @@ async function displayPlaylists(){
         h3.textContent = playlist.name;
         
         div.appendChild(h3);
-        button.before(div);
-
+        container.appendChild(div);
     }
 }
 
