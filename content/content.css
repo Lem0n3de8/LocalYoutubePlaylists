@@ -1,6 +1,9 @@
 #playlist_button{
     background-color: #272727;
 
+    border: transparent;
+    border-radius: 50%;
+
     padding: 2px 4px 2px 4px;
 
     margin-left: auto;
