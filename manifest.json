@@ -16,6 +16,10 @@
         }
     },
 
+    "permissions":[
+        "storage"
+    ],
+
     "web_accessible_resources":[
         {
             "resources": [
@@ -32,6 +36,7 @@
         {
             "matches":["*://www.youtube.com/*"],
             "js":[
+                "storage/playlists.js",
                 "content/playlist-ui.js",
                 "content/content.js"
             ],
