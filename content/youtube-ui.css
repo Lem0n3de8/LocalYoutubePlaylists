@@ -1,0 +1,11 @@
+#playlist-overlay {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+
+    width: 300px;
+
+    border: 10px solid red;
+
+    z-index: 2147483647;
+}
