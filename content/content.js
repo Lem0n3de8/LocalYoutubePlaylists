@@ -22,7 +22,7 @@ function addPlaylistButton(){
     playlist_icon.id = playlist_icon_id;
     playlist_icon.width = 28;
     playlist_icon.height = 28;
-    playlist_icon.src = browser.runtime.getURL("images/playlist-svgrepo-com(1).svg");
+    playlist_icon.src = browser.runtime.getURL("images/playlist-icon.svg");
 
     h1.appendChild(button).appendChild(playlist_icon);
 }
