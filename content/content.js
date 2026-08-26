@@ -30,6 +30,7 @@ function addPlaylistButton(){
 document.addEventListener("click", (event) => {
     if (event.target.closest("#playlist_button")) {
         console.log("Playlist button clicked!");
+        showPlaylistUI();
     }
 });
 
