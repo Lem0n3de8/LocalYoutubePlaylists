@@ -14,10 +14,10 @@ async function showPlaylistUI() {
 
     document.body.insertAdjacentHTML("beforeend", html);
 
-    displayPlaylists();
+    renderPlaylists();
 }
 
-async function displayPlaylists(){
+async function renderPlaylists(){
     const playlists = await getPlaylists();
     const container = document.getElementById("playlist-container");
 
@@ -42,6 +42,6 @@ async function displayPlaylists(){
 document.addEventListener("click", async (event) => {
     if (event.target.closest("#create-playlist")) {
         const success = await createPlaylist("Playlist");
-        if (success) await displayPlaylists();
+        if (success) await renderPlaylists();
     }
 });
