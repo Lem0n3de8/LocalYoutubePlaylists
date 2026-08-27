@@ -108,14 +108,3 @@ async function renderPlaylists(){
         container.appendChild(div);
     }
 }
-
-
-// Temp change, if classic button.addeventlistener doesn't work,
-// use this structure
-//
-// document.addEventListener("click", async (event) => {
-//     if (event.target.closest("#create-playlist")) {
-//         const success = await createPlaylist("Playlist");
-//         if (success) await renderPlaylists();
-//     }
-// });
