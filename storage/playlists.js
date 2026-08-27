@@ -28,3 +28,20 @@ async function createPlaylist(name){
         return false;
     }
 }
+
+async function deletePlaylist(id){
+    try{
+        const data = await browser.storage.local.get("playlists");
+        const playlists = data.playlists || [];
+
+        const updatedPlaylists = playlists.filter(
+            playlist => playlist.id !== id
+        );
+
+        await browser.storage.local.set({
+            playlists: updatedPlaylists
+        });
+    }catch(error){
+        console.error("Failed to delete playlist:", error);
+    }
+}
