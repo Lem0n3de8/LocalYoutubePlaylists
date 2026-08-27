@@ -7,7 +7,7 @@ function addPlaylistButton(){
         return;
     }
 
-    // Selectors where button is inserted
+    // Selectors where playlist button is inserted
     const div = document.getElementById("title");
     if (!div) return;
 
