@@ -70,16 +70,41 @@ async function renderPlaylists(){
     container.innerHTML = "";
 
     // Render playlists
+
+    let i = 0;
     for (const playlist of playlists){
+        i++;
         const div = document.createElement("div");
         const h3 = document.createElement("h3");
+        const delButton = document.createElement("button");
 
         div.id = playlist.id;
         div.classList.add("playlist-div");
         
-        h3.textContent = playlist.name;
+        h3.textContent = i + ". "+playlist.name;
         
+        delButton.textContent = "x";
+        delButton.classList.add("delete-playlist");
+
+        delButton.addEventListener("click", async() =>{
+            if (!delButton.classList.contains("confirm-delete")){
+                delButton.classList.add("confirm-delete");
+                delButton.textContent = "Delete";
+
+                setTimeout(() => {
+                    delButton.classList.remove("confirm-delete");
+                    delButton.textContent = "x";
+                }, 3000);
+
+                return;
+            }
+
+            await deletePlaylist(playlist.id);
+            await renderPlaylists();
+        })
+
         div.appendChild(h3);
+        div.appendChild(delButton)
         container.appendChild(div);
     }
 }
