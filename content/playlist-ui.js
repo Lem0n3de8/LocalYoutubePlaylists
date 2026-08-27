@@ -14,7 +14,52 @@ async function showPlaylistUI() {
 
     document.body.insertAdjacentHTML("beforeend", html);
 
-    renderPlaylists();
+    setupPlaylistUI();
+    await renderPlaylists();
+}
+
+function setupPlaylistUI(){
+    const createButton = document.getElementById("create-playlist");
+    const createForm = document.getElementById("create-playlist-form");
+    const playlistName = document.getElementById("playlist-name");
+    const confirmButton = document.getElementById("confirm-create-playlist");
+    const cancelButton = document.getElementById("cancel-create-playlist");
+
+    createButton.addEventListener("click", () => {
+        createForm.hidden = false;
+        createButton.hidden = true;
+        playlistName.focus();
+    });
+
+    cancelButton.addEventListener("click", () => {
+        createForm.hidden = true;
+        createButton.hidden = false;
+        playlistName.value = "";
+    });
+
+    confirmButton.addEventListener("click", async () => {
+        const name = playlistName.value.trim();
+
+        if (!name) {
+            return;
+        }
+
+        const success = await createPlaylist(name);
+
+        if (success) {
+            playlistName.value = "";
+            createForm.hidden = true;
+            createButton.hidden = false;
+
+            await renderPlaylists();
+        }
+    });
+
+    playlistName.addEventListener("keydown", async (event) => {
+        if (event.key === "Enter") {
+            confirmButton.click();
+        }
+    });
 }
 
 async function renderPlaylists(){
@@ -39,9 +84,13 @@ async function renderPlaylists(){
     }
 }
 
-document.addEventListener("click", async (event) => {
-    if (event.target.closest("#create-playlist")) {
-        const success = await createPlaylist("Playlist");
-        if (success) await renderPlaylists();
-    }
-});
+
+// Temp change, if classic button.addeventlistener doesn't work,
+// use this structure
+//
+// document.addEventListener("click", async (event) => {
+//     if (event.target.closest("#create-playlist")) {
+//         const success = await createPlaylist("Playlist");
+//         if (success) await renderPlaylists();
+//     }
+// });
