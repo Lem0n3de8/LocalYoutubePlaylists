@@ -14,28 +14,97 @@ async function showPlaylistUI() {
 
     document.body.insertAdjacentHTML("beforeend", html);
 
-    console.log("Calling playlists");
-    displayPlaylists();
+    setupPlaylistUI();
+    await renderPlaylists();
 }
 
-async function displayPlaylists(){
+function setupPlaylistUI(){
+    const createButton = document.getElementById("create-playlist");
+    const createForm = document.getElementById("create-playlist-form");
+    const playlistName = document.getElementById("playlist-name");
+    const confirmButton = document.getElementById("confirm-create-playlist");
+    const cancelButton = document.getElementById("cancel-create-playlist");
+
+    createButton.addEventListener("click", () => {
+        createForm.hidden = false;
+        createButton.hidden = true;
+        playlistName.focus();
+    });
+
+    cancelButton.addEventListener("click", () => {
+        createForm.hidden = true;
+        createButton.hidden = false;
+        playlistName.value = "";
+    });
+
+    confirmButton.addEventListener("click", async () => {
+        const name = playlistName.value.trim();
+
+        if (!name) {
+            return;
+        }
+
+        const success = await createPlaylist(name);
+
+        if (success) {
+            playlistName.value = "";
+            createForm.hidden = true;
+            createButton.hidden = false;
+
+            await renderPlaylists();
+        }
+    });
+
+    playlistName.addEventListener("keydown", async (event) => {
+        if (event.key === "Enter") {
+            confirmButton.click();
+        }
+    });
+}
+
+async function renderPlaylists(){
     const playlists = await getPlaylists();
-    console.log("Playlists are: ", playlists);
+    const container = document.getElementById("playlist-container");
 
-    const button = document.getElementById("create-playlist")
+    // Remove existing playlist elements
+    container.innerHTML = "";
 
+    // Render playlists
+
+    let i = 0;
     for (const playlist of playlists){
-        console.log("NEW PLAYLIST:", playlist);
+        i++;
         const div = document.createElement("div");
         const h3 = document.createElement("h3");
+        const delButton = document.createElement("button");
 
         div.id = playlist.id;
         div.classList.add("playlist-div");
         
-        h3.textContent = playlist.name;
+        h3.textContent = i + ". "+playlist.name;
         
-        div.appendChild(h3);
-        button.before(div);
+        delButton.textContent = "x";
+        delButton.classList.add("delete-playlist");
 
+        delButton.addEventListener("click", async() =>{
+            if (!delButton.classList.contains("confirm-delete")){
+                delButton.classList.add("confirm-delete");
+                delButton.textContent = "Delete";
+
+                setTimeout(() => {
+                    delButton.classList.remove("confirm-delete");
+                    delButton.textContent = "x";
+                }, 3000);
+
+                return;
+            }
+
+            await deletePlaylist(playlist.id);
+            await renderPlaylists();
+        })
+
+        div.appendChild(h3);
+        div.appendChild(delButton)
+        container.appendChild(div);
     }
 }

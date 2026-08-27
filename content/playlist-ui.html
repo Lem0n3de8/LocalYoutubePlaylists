@@ -1,8 +1,14 @@
 <div id="playlist-overlay" class="playlist-overlay">
     <div class="playlist-ui">
-        <h2>Save to playlist</h2>
-        <button id="create-playlist">
-            + Create playlist
-        </button>
+        <h1>Save to playlist</h1>
+        <div id="playlist-container"></div>
+        <div id="create-playlist-container">
+            <button id="create-playlist">Create playlist</button>
+        </div>
+        <div id="create-playlist-form" hidden>
+            <input type="text" name="playlist-name" id="playlist-name" class="form-input" placeholder="Playlist name">
+            <button id="confirm-create-playlist" class="form-input">Create</button>
+            <button id="cancel-create-playlist" class="form-input">Cancel</button>
+        </div>
     </div>
 </div>

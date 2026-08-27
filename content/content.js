@@ -7,7 +7,7 @@ function addPlaylistButton(){
         return;
     }
 
-    // Selectors where button is inserted
+    // Selectors where playlist button is inserted
     const div = document.getElementById("title");
     if (!div) return;
 
@@ -29,7 +29,6 @@ function addPlaylistButton(){
 
 document.addEventListener("click", (event) => {
     if (event.target.closest("#playlist_button")) {
-        console.log("Playlist button clicked!");
         showPlaylistUI();
     }
 });
