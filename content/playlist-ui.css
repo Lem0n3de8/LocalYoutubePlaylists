@@ -1,14 +1,76 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+}
 #playlist-overlay {
     position: fixed;
     top: 80px;
     right: 20px;
 
-    background-color: aquamarine;
-    width: 300px;
+    background-color: #404040;
+    width: 400px;
     max-height: 500px;
 
     border: 1px solid #000000;
-    border-radius: 3px;
+    border-radius: 5px;
 
     z-index: 2147483647;
+}
+
+.playlist-div{
+    display: flex;
+    flex-direction: row;
+    padding: 5px 10px 3px 10px;
+    margin: 0px;
+}
+
+#create-playlist-container:hover,
+.playlist-div:hover{
+    background-color: #616161;
+}
+
+h1{
+    margin: 5px 5px 3px 10px;
+}
+
+.delete-playlist{
+    border: 0px;
+    border-radius: 3px;
+    margin: auto 3px auto auto;
+    background-color: transparent;
+}
+
+.delete-playlist.confirm-delete{
+    background-color: #404040;
+    color: red;
+    font-weight: bold;
+}
+
+#playlist-name,
+#confirm-create-playlist,
+#cancel-create-playlist,
+#create-playlist{
+    border: 0px; 
+    background-color: transparent;
+    border-radius: 3px;
+    margin: 5px 5px 5px 10px ;
+    padding: 10px;
+    
+}
+
+#confirm-create-playlist:hover,
+#cancel-create-playlist:hover,
+#create-playlist:hover,
+.delete-playlist:hover{
+    cursor: pointer;
+    background-color: #404040;
+    border: black solid 2px;
+}
+
+#playlist-name{
+    margin: 5px 5px 5px 10px
+}
+
+.form-input{
+    background-color: #404040;
 }
